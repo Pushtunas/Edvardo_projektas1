@@ -1,5 +1,7 @@
 # naudojami moduliai
 import sqlite3
+from tkinter import *
+import time
 
 
 # klasė, konstruktorius, metodai
@@ -29,3 +31,21 @@ class DuomenuBaze:
 
     def __del__(self):
         self.conn.close()
+
+class Laikas:
+    def __init__(self):
+        self.laikas = time.strftime('%Y-%m-%d, %H:%M:%S')
+        self.mFrame = Frame()
+        self.mFrame.pack(side=BOTTOM, fill=X)
+
+        self.watch = Label(self.mFrame, text=self.laikas)
+        self.watch.pack()
+
+        #iškviečiame laiką pirmą kartą rankiniu būdu
+        self.changeLabel()
+
+    def changeLabel(self):
+        self.laikas = time.strftime('%Y-%m-%d, %H:%M:%S')
+        self.watch.configure(text=self.laikas)
+        #laiko automatinis atnaujinimas
+        self.mFrame.after(200, self.changeLabel)

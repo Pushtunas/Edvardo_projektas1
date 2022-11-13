@@ -208,6 +208,8 @@ atnaujinti_btn.grid(row=1, column=3, sticky=EW, padx=(10, 0))
 trinti_btn.grid(row=2, column=3, sticky=EW, padx=(10, 0))
 iseiti_btn.grid(row=2, column=4, sticky=EW, padx=(10, 0))
 
+# rodom realų laiką
+realus_laikas = Laikas()
 
 # Treeview valdiklis(widget)
 tv = ttk.Treeview(virsus, columns=(1, 2, 3, 4), show='headings', height=8)
